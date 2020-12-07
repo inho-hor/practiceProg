@@ -16,10 +16,10 @@ namespace regAndAuto
         {
             InitializeComponent();
         }
-
+        
         private void returnEntrance_Click(object sender, EventArgs e)
         {
-            this.Hide(); 
+            this.Hide();
             Form1 fr1 = new Form1();
             fr1.Show();
         }
