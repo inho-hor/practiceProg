@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.Sql;
+using static System.Data.SqlClient.SqlException;
 
 namespace regAndAuto
 {
@@ -22,7 +23,25 @@ namespace regAndAuto
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             String loginUser = loginField.Text;
-            String passUser = passField.Text;   
+            String passUser = passField.Text;
+
+            DB db = new DB();
+
+            DataTable table = new DataTable();
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+
+            SqlCommand command = new SqlCommand("SELECT * FROM [user] where [login] = @ul AND [password] = @up", db.getConnection()); // сопоставление логина и пароля в бд
+            command.Parameters.Add("@ul", SqlDbType.NVarChar).Value = loginUser;
+            command.Parameters.Add("@up", SqlDbType.NVarChar).Value = passUser;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+                MessageBox.Show("Yes");
+            else
+                MessageBox.Show("No");
         }
 
         private void label3_MouseClick(object sender, MouseEventArgs e)
