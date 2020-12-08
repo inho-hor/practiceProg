@@ -80,6 +80,7 @@
             this.passField.Name = "passField";
             this.passField.Size = new System.Drawing.Size(147, 22);
             this.passField.TabIndex = 4;
+            this.passField.UseSystemPasswordChar = true;
             // 
             // buttonLogin
             // 

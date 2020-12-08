@@ -32,10 +32,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.userNameField = new System.Windows.Forms.TextBox();
+            this.userLoginField = new System.Windows.Forms.TextBox();
+            this.userPasswordField = new System.Windows.Forms.TextBox();
+            this.userPasswordDbField = new System.Windows.Forms.TextBox();
             this.registrationButton = new System.Windows.Forms.Button();
             this.returnEntrance = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -80,33 +80,35 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Подтверждение пароля";
             // 
-            // textBox1
+            // userNameField
             // 
-            this.textBox1.Location = new System.Drawing.Point(57, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 22);
-            this.textBox1.TabIndex = 4;
+            this.userNameField.Location = new System.Drawing.Point(57, 65);
+            this.userNameField.Name = "userNameField";
+            this.userNameField.Size = new System.Drawing.Size(172, 22);
+            this.userNameField.TabIndex = 4;
             // 
-            // textBox2
+            // userLoginField
             // 
-            this.textBox2.Location = new System.Drawing.Point(57, 110);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(172, 22);
-            this.textBox2.TabIndex = 5;
+            this.userLoginField.Location = new System.Drawing.Point(57, 110);
+            this.userLoginField.Name = "userLoginField";
+            this.userLoginField.Size = new System.Drawing.Size(172, 22);
+            this.userLoginField.TabIndex = 5;
             // 
-            // textBox3
+            // userPasswordField
             // 
-            this.textBox3.Location = new System.Drawing.Point(57, 155);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(172, 22);
-            this.textBox3.TabIndex = 6;
+            this.userPasswordField.Location = new System.Drawing.Point(57, 155);
+            this.userPasswordField.Name = "userPasswordField";
+            this.userPasswordField.Size = new System.Drawing.Size(172, 22);
+            this.userPasswordField.TabIndex = 6;
+            this.userPasswordField.UseSystemPasswordChar = true;
             // 
-            // textBox4
+            // userPasswordDbField
             // 
-            this.textBox4.Location = new System.Drawing.Point(57, 200);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(172, 22);
-            this.textBox4.TabIndex = 7;
+            this.userPasswordDbField.Location = new System.Drawing.Point(57, 200);
+            this.userPasswordDbField.Name = "userPasswordDbField";
+            this.userPasswordDbField.Size = new System.Drawing.Size(172, 22);
+            this.userPasswordDbField.TabIndex = 7;
+            this.userPasswordDbField.UseSystemPasswordChar = true;
             // 
             // registrationButton
             // 
@@ -117,6 +119,7 @@
             this.registrationButton.TabIndex = 8;
             this.registrationButton.Text = "Зарегистрироваться";
             this.registrationButton.UseVisualStyleBackColor = true;
+            this.registrationButton.Click += new System.EventHandler(this.registrationButton_Click);
             // 
             // returnEntrance
             // 
@@ -136,10 +139,10 @@
             this.ClientSize = new System.Drawing.Size(280, 342);
             this.Controls.Add(this.returnEntrance);
             this.Controls.Add(this.registrationButton);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.userPasswordDbField);
+            this.Controls.Add(this.userPasswordField);
+            this.Controls.Add(this.userLoginField);
+            this.Controls.Add(this.userNameField);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -157,10 +160,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox userNameField;
+        private System.Windows.Forms.TextBox userLoginField;
+        private System.Windows.Forms.TextBox userPasswordField;
+        private System.Windows.Forms.TextBox userPasswordDbField;
         private System.Windows.Forms.Button registrationButton;
         private System.Windows.Forms.Button returnEntrance;
     }
