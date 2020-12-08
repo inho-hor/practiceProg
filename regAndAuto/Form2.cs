@@ -92,7 +92,7 @@ namespace regAndAuto
 
         public Boolean checkPassword()
         {
-            if (userPasswordField.Text != userPasswordDbField.Text)
+            if (userPasswordField.Text == userPasswordDbField.Text)
             {
                 MessageBox.Show("Проверьте правильность введённого пароля");
                 return true;
