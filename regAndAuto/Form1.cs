@@ -31,6 +31,8 @@ namespace regAndAuto
 
             SqlDataAdapter adapter = new SqlDataAdapter();
 
+            SqlCommand command1 = new SqlCommand("SELECT [role] FROM [user]", db.getConnection());
+
             SqlCommand command = new SqlCommand("SELECT * FROM [user] where [login] = @ul AND [password] = @up", db.getConnection()); // сопоставление логина и пароля в бд
             command.Parameters.Add("@ul", SqlDbType.NVarChar).Value = loginUser;
             command.Parameters.Add("@up", SqlDbType.NVarChar).Value = passUser;
@@ -39,9 +41,16 @@ namespace regAndAuto
             adapter.Fill(table);
 
             if (table.Rows.Count > 0)
-                MessageBox.Show("Yes");
+            {
+                if (command1 = "admin")
+                {
+                    this.Hide();
+                    AdminForm adminForm = new AdminForm();
+                    adminForm.Show();
+                }
+            }
             else
-                MessageBox.Show("No");
+                MessageBox.Show("Неверный логин или пароль");
         }
 
         private void label3_MouseClick(object sender, MouseEventArgs e)
