@@ -27,38 +27,38 @@ namespace regAndAuto
 
             DB db = new DB();
 
+           
             DataTable table = new DataTable();
 
             SqlDataAdapter adapter = new SqlDataAdapter();
 
-            SqlCommand command1 = new SqlCommand("SELECT [role] FROM [user]", db.getConnection());
-
+            SqlCommand cmd = new SqlCommand("SELECT role FROM [user]", db.getConnection());
             SqlCommand command = new SqlCommand("SELECT * FROM [user] where [login] = @ul AND [password] = @up", db.getConnection()); // сопоставление логина и пароля в бд
             command.Parameters.Add("@ul", SqlDbType.NVarChar).Value = loginUser;
             command.Parameters.Add("@up", SqlDbType.NVarChar).Value = passUser;
 
+            SqlDataReader reader = cmd.ExecuteReader();
+
+
             adapter.SelectCommand = command;
             adapter.Fill(table);
 
-            if (table.Rows.Count > 0)
+
+            db.openConnection();
+            if (table.Rows.Count > 0) // чисто на совпадение логина и пароля.
             {
-                if (command1 = "admin")
-                {
-                    this.Hide();
-                    AdminForm adminForm = new AdminForm();
-                    adminForm.Show();
-                }
+                MessageBox.Show("Ok");
             }
             else
                 MessageBox.Show("Неверный логин или пароль");
+            db.closeConnection();
         }
-
+        
         private void label3_MouseClick(object sender, MouseEventArgs e)
         {
-            this.Hide(); 
+            this.Hide();
             Form2 fr2 = new Form2();
             fr2.Show();
         }
-
     }
 }
